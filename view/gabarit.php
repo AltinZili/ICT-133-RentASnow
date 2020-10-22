@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE HTML>
-<?php require_once  'helpers.php' ?>;
+<?php require_once  'helpers.php' ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -54,7 +54,11 @@
                         <!-- On commence par afficher les boutons qui s'afficheront, peu importe les événements-->
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=snows">Snows</a></li>
-                        <li><a href="index.php?action=loginPage">Login</a></li>
+                        <?php if(isset($_SESSION['user'])){ ?>
+                            <li><a href="index.php?action=logout">Logout</a></li>
+                        <?php } else { ?>
+                            <li><a href="index.php?action=loginPage">Login</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

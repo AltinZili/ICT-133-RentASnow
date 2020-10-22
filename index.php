@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require "controler/controler.php";
 
 if(isset($_GET['action'])){
@@ -26,6 +28,10 @@ switch($action){
         $emailPost = $_POST['email'];
         $passwordPost = $_POST['password'];
         tryLogin($emailPost, $passwordPost);
+        break;
+    case 'logout':
+        logout();
+        break;
 }
 
 ?>

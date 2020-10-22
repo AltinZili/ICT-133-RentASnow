@@ -40,7 +40,12 @@ function tryLogin($email, $password)
         $_SESSION['flashmessage'] = "Pas d'accord";
         require_once 'view/login.php';
     }
+}
 
-
+function logout()
+{
+    unset($_SESSION['user']);
+    session_destroy();
+    homePage();
 }
 ?>
