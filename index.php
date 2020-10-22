@@ -19,6 +19,13 @@ switch($action){
         $idGet = $_GET['id'];
         snowDetailsPage($idGet);
         break;
+    case 'loginPage':
+        loginPage();
+        break;
+    case 'login':
+        $emailPost = $_POST['email'];
+        $passwordPost = $_POST['password'];
+        tryLogin($emailPost, $passwordPost);
 }
 
 ?>

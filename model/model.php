@@ -56,6 +56,22 @@ function getSnow($id)
     }
 }
 
+function getUserByEmail($email)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users WHERE email=:email';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['email' => $email]);
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 
 
 ?>

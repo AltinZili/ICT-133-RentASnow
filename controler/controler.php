@@ -21,4 +21,26 @@ function snowDetailsPage($id)
     require_once 'view/snowdetails.php';
 }
 
+function loginPage()
+{
+    require_once 'view/login.php';
+}
+
+function tryLogin($email, $password)
+{
+    $user = getUserByEmail($email, $password);
+
+    if(password_verify($password, $user['password'])){
+        unset($user['password']);
+        $_SESSION['user'] = $user;
+        $_SESSION['flashmessage'] = 'Bonjour '. $_SESSION['user']['firstname'];
+        require_once 'view/home.php';
+    } else {
+        unset($_SESSION['user']);
+        $_SESSION['flashmessage'] = "Pas d'accord";
+        require_once 'view/login.php';
+    }
+
+
+}
 ?>
