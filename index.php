@@ -21,6 +21,10 @@ switch($action){
         $idGet = $_GET['id'];
         snowDetailsPage($idGet);
         break;
+    case 'realSnowDetails':
+        $idGet = $_GET['id'];
+        realSnowDetailsPage($idGet);
+        break;
     case 'loginPage':
         loginPage();
         break;
@@ -31,6 +35,9 @@ switch($action){
         break;
     case 'logout':
         logout();
+        break;
+    default:
+        homePage();
         break;
 }
 

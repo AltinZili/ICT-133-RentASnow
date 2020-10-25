@@ -56,6 +56,39 @@ function getSnow($id)
     }
 }
 
+function getRealSnow($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM snows INNER JOIN snowtypes on snowtype_id = snowtypes.id WHERE snows.id=:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);
+        $dbh = null;
+        var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+function getSnowsOfType($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM snows WHERE snowtype_id=:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 function getUserByEmail($email)
 {
     try {

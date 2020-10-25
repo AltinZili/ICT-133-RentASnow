@@ -5,15 +5,14 @@
 
     <div class="row-fluid">
         <h1>Nos Snowboards:</h1>
+        <div class="snows">
             <?php foreach ($snows as $snow) { ?>
-            <div>
-                <img src="view/images/<?= $snow['photo'] ?>" class="listimages" alt="">
-                <h3>Marque: <?= $snow['brand'] ?></h3>
-                <h3>Modèle: <?= $snow['model'] ?></h3>
-                <a href="index.php?action=snowDetails&id=<?= $snow['id'] ?>">Détails</a>
+            <div class="snow">
+                <img src="view/images/<?= $snow['photo'] ?>" class="listimages" alt=""><br>
+                <a href="index.php?action=snowDetails&id=<?= $snow['id'] ?>"><?= $snow['brand'] ?><?= $snow['model'] ?></a>
             </div>
-            <br>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
 
 
