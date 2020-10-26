@@ -25,6 +25,13 @@ switch($action){
         $idGet = $_GET['id'];
         realSnowDetailsPage($idGet);
         break;
+    case 'editSnowDetails':
+        $idGet = $_GET['id'];
+        editSnowDetailsPage($idGet);
+        break;
+    case 'saveSnowDetails':
+        var_dump($_POST);
+        break;
     case 'loginPage':
         loginPage();
         break;

@@ -25,8 +25,13 @@ function snowDetailsPage($id)
 function realSnowDetailsPage($id)
 {
     $snow = getRealSnow($id);
-    $snows = getSnowsOfType($id);
     require_once 'view/realsnowdetails.php';
+}
+
+function editSnowDetailsPage($id)
+{
+    $snow = getRealSnow($id);
+    require_once 'view/editsnowdetails.php';
 }
 
 function loginPage()

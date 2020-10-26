@@ -28,7 +28,9 @@
             <tr>
                 <th>available</th>
                 <td><?= getTextAvailable($snow['available']) ?></td>
-            </table>
+            </tr>
+        </table>
+    <a href="index.php?action=editSnowDetails&id=<?= $id ?>">Modifier</a>
 </div>
 
 <?php
