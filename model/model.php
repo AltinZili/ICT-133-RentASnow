@@ -89,6 +89,26 @@ function getSnowsOfType($id)
     }
 }
 
+function updateSnow($snowData)
+{
+    if(isset($snowData['available']))
+    {
+        $snowData['available'] = 1;
+    } else {
+        $snowData['available'] = 0;
+    }
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE snows SET code=:code, length=:length, state=:state, available=:available  WHERE id=:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute($snowData);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 function getUserByEmail($email)
 {
     try {

@@ -30,7 +30,10 @@ switch($action){
         editSnowDetailsPage($idGet);
         break;
     case 'saveSnowDetails':
-        var_dump($_POST);
+        updateSnow($_POST);
+        $_SESSION['flashmessage'] = 'OK';
+        $idPost = $_POST['id'];
+        realSnowDetailsPage($idPost);
         break;
     case 'loginPage':
         loginPage();

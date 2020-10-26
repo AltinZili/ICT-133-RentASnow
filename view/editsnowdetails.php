@@ -27,8 +27,8 @@
                 <td>
                     <select name="state">
                         <option value="1" <?= ($snow['state'] == 1) ? "selected" : "" ?>>Neuf</option>
-                        <option value="2" <?= ($snow['state'] == 2) ? "selected" : "" ?>>Ok</option>
-                        <option value="3" <?= ($snow['state'] == 3) ? "selected" : "" ?>>Vieux4</option>
+                        <option value="2" <?= ($snow['state'] == 2) ? "selected" : "" ?>>Usagé</option>
+                        <option value="3" <?= ($snow['state'] == 3) ? "selected" : "" ?>>Vieux</option>
                         <option value="4" <?= ($snow['state'] == 4) ? "selected" : "" ?>>Mort</option>
                     </select>
                 </td>
@@ -38,7 +38,7 @@
                 <td><input type="checkbox" name="available" <?= ($snow['available'] == 1) ? 'checked' : ''?>></td>
             </tr>
         </table>
-    <input type="hidden" name="snowid" value="<?= $snow['available'] ?>">
+    <input type="hidden" name="id" value="<?= $id ?>">
     <button type="submit" class="btn btn-succes">Enregistrer</button>
 </form>
 </div>
