@@ -25,6 +25,7 @@ function snowDetailsPage($id)
 function realSnowDetailsPage($id)
 {
     $snow = getRealSnow($id);
+    $rents = getRentsOfsnow($id);
     require_once 'view/realsnowdetails.php';
 }
 
@@ -32,6 +33,28 @@ function editSnowDetailsPage($id)
 {
     $snow = getRealSnow($id);
     require_once 'view/editsnowdetails.php';
+}
+
+function putInCart($id)
+{
+    $snow = getRealSnow($id);
+    $_SESSION['cart'][] = $snow;
+    withdrawSnow($id);
+    $_SESSION['flashmessage'] = 'ajouté dans le panier';
+    return;
+}
+
+function rentSnows($cartContent){
+    $rentid = createRent($_SESSION['user']['id']);
+
+    foreach($cartContent as $snow)
+    {
+        addSnowToRent($snow, $rentid);
+    }
+
+    unset($_SESSION['cart']);
+    $_SESSION['flashmessage'] = 'Location enregistrée';
+    snowsPage();
 }
 
 function loginPage()

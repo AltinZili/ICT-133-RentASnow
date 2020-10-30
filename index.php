@@ -35,6 +35,18 @@ switch($action){
         $idPost = $_POST['id'];
         realSnowDetailsPage($idPost);
         break;
+    case 'putInCart':
+        $idGet = $_GET['id'];
+        putInCart($idGet);
+        snowsPage();
+    case 'viewCart':
+        $cartContent = $_SESSION['cart'];
+        require_once "view/cart.php";
+        break;
+    case 'rentSnows':
+        $cartContent = $_SESSION['cart'];
+        rentSnows($cartContent);
+        break;
     case 'loginPage':
         loginPage();
         break;

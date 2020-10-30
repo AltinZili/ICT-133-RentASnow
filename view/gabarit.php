@@ -56,6 +56,7 @@
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=snows">Snows</a></li>
                         <?php if(isset($_SESSION['user'])){ ?>
+                            <li> <?= cartButton() ?></li>
                             <li><a href="index.php?action=logout">Logout</a></li>
                         <?php } else { ?>
                             <li><a href="index.php?action=loginPage">Login</a></li>
